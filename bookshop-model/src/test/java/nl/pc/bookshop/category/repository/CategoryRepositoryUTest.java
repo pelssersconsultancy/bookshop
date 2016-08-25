@@ -49,6 +49,6 @@ public class CategoryRepositoryUTest {
         }
 
         Category category = categoryRepository.findById(categoryId);
-        assertThat("java", is(equalTo(category.getName())));
+        assertThat(category.getName(), is(equalTo(java().getName())));
     }
 }
