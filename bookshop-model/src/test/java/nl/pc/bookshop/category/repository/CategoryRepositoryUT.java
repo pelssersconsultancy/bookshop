@@ -17,7 +17,7 @@ import static nl.pc.bookshop.category.Categories.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
-public class CategoryRepositoryUTest {
+public class CategoryRepositoryUT {
 
     private EntityManagerFactory emf;
     private EntityManager em;

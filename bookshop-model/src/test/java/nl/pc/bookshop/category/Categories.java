@@ -31,4 +31,9 @@ public class Categories {
     public static List<Category> allCategories() {
         return Arrays.asList(java(), cleanCode(), architecture(), networks());
     }
+
+    public static Category mapToCategoryWithId(Category category, Long id) {
+        category.setId(id);
+        return category;
+    }
 }

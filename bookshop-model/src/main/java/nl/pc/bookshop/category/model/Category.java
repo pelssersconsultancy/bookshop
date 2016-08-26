@@ -1,6 +1,9 @@
 package nl.pc.bookshop.category.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -14,6 +17,8 @@ public class Category implements Serializable {
     private Long id;
 
 
+    @NotNull
+    @Size(min = 2, max = 25)
     @Column(unique = true)
     private String name;
 
@@ -49,18 +54,17 @@ public class Category implements Serializable {
 
         Category category = (Category) o;
 
-        if (!id.equals(category.id)) return false;
-        return name.equals(category.name);
+        if (id != null ? !id.equals(category.id) : category.id != null) return false;
+        return name != null ? name.equals(category.name) : category.name == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + name.hashCode();
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
-
 
     @Override
     public String toString() {
